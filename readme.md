@@ -1,7 +1,3 @@
-📊 NSE & BSE Equity Scrapers (Indian Market)
-
-Automated Python scripts to build clean, datasets for NSE and BSE using official exchange sources with Yahoo Finance enrichment.
-
 📈 NSE Scraper
 🧾 What this script does
 
@@ -10,6 +6,7 @@ It fetches all tradable NSE symbols, loads official company name and listing dat
 Each run generates fresh data (no cache).
 
 📂 Output
+
 output/nse_equities_master_full.csv
 
 📑 Columns
@@ -63,6 +60,7 @@ It fetches all BSE-listed equity instruments, filters only Active Equity stocks,
 Each run generates fresh data.
 
 📂 Output
+
 output/bse_useful_stocks.csv
 
 📑 Columns in output
