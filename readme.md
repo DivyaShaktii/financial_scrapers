@@ -1,136 +1,190 @@
+📊 NSE & BSE Equity Scrapers (Indian Market)
+
+Automated Python scripts to build clean, fresh equity master datasets for NSE and BSE, using official exchange sources with Yahoo Finance enrichment.
+
 📈 NSE Scraper
-🧾 What this script does
+🧾 What This Script Does
 
 This script builds a complete NSE equities master file from scratch.
-It fetches all tradable NSE symbols, loads official company name and listing date from NSE, uses Yahoo Finance as a fallback for missing data, adds P/E, market cap, and sector, and saves the result as a CSV file.
+
+It:
+
+Fetches all tradable NSE symbols
+
+Loads official company name and listing date from NSE
+
+Uses Yahoo Finance as a fallback for missing data
+
+Adds P/E ratio, market cap, and sector
+
+Saves the result as a CSV file
+
 Each run generates fresh data (no cache).
 
 📂 Output
-
 output/nse_equities_master_full.csv
 
 📑 Columns
+Column Name	Description
+symbol	NSE trading symbol
+companyName	Official company name
+listingDate	NSE listing date
+pe	Price-to-Earnings ratio
+market_cap	Market capitalization
+sector	Industry / sector
+🔗 Data Sources
 
-symbol
+NSE Pre-open API
+→ Complete tradable symbol universe
 
-companyName
+NSE EQUITY_L.csv
+→ Official company name and listing date
 
-listingDate
+Yahoo Finance
+→ Fallback for missing name/date
+→ Source for P/E, market cap, and sector
 
-pe
+⚠️ Why Some Values Are Empty
 
-market_cap
+P/E → Missing for loss-making companies
 
-sector
+Sector → May be missing for ETFs or newly listed stocks
 
-🔗 Data sources
+Listing Date → May be missing for very recent IPOs
 
-NSE Pre-open API: symbol universe
+This reflects real data availability, not a script error.
 
-NSE EQUITY_L.csv: official company name and listing date
-
-Yahoo Finance: fallback for missing name/date and for PE, market cap, sector
-
-⚠️ Why some values are empty
-
-P/E is missing for loss-making companies.
-
-Sector may be missing for ETFs or new stocks.
-
-Listing date may be missing for very recent listings.
-This reflects real data availability.
-
-🚀 How to run
+🚀 How to Run
 pip install pandas requests yfinance
 python nse_full_async3.py
 
 ⏱ Runtime
 
-First run takes approximately 10–20 minutes depending on symbol count and Yahoo response time.
+~10–20 minutes
+(Depends on symbol count and Yahoo response time)
 
 🧠 Summary
 
-This script creates a clean NSE stock Data using NSE as the primary source and Yahoo Finance as a fallback.
+Creates a clean NSE stock master dataset using:
 
+NSE as the primary source
+
+Yahoo Finance only as a fallback
+
+<hr/>
 📊 BSE Scraper
-🧾 What this script does
+🧾 What This Script Does
 
 This script builds a BSE mainboard equity stock master from scratch.
-It fetches all BSE-listed equity instruments, filters only Active Equity stocks, uses Yahoo Finance to enrich data with Sector, Industry, and P/E ratio, and saves the final dataset as a single CSV file.
+
+It:
+
+Fetches all BSE-listed equity instruments
+
+Filters only Active Equity stocks
+
+Uses Yahoo Finance to enrich data with:
+
+Sector
+
+Industry
+
+P/E ratio
+
+Saves the final dataset as a single CSV file
+
 Each run generates fresh data.
 
 📂 Output
-
 output/bse_useful_stocks.csv
 
-📑 Columns in output
+📑 Columns
+Column Name	Description
+Security Code	BSE security code
+Issue Name	Stock issue name
+Security ID	BSE security identifier
+Instrument	Instrument type
+Face Value	Face value
+BSE URL	Official BSE stock page
+Issuer Name	Company name
+Market Cap	Market capitalization
+Sector (Yahoo)	Sector classification
+Industry (Yahoo)	Industry classification
+PE (Yahoo)	Trailing P/E ratio
+🔗 Data Sources Used
+🏛 BSE Scrip Master API
 
-Security Code
+Used to obtain:
 
-Issue Name
+Security code
+
+Issue name
 
 Security ID
 
-Instrument
+Instrument type
 
-Face Value
+Face value
 
-BSE URL
+Issuer name
 
-Issuer Name
+Market capitalization
 
-Market Cap
+Official BSE stock URL
 
-Sector (Yahoo)
-
-Industry (Yahoo)
-
-PE (Yahoo)
-
-🔗 Data sources used
-🏛 BSE Scrip Master API
-
-Used to obtain security code, issue name, security ID, instrument type, face value, issuer name, market capitalization, official BSE stock URL, and trading status.
+Trading status
 
 🌐 Yahoo Finance
 
-Used to fetch sector, industry, and trailing P/E ratio.
+Used to fetch:
+
+Sector
+
+Industry
+
+Trailing P/E
+
 Yahoo is required because BSE does not provide these fields in free APIs.
 
-⚠️ Why some values may be empty
+⚠️ Why Some Values May Be Empty
 
-P/E is missing for loss-making companies.
+P/E → Missing for loss-making companies
 
-Sector or Industry may be missing for thinly traded or newly listed stocks.
+Sector / Industry → Missing for thinly traded or newly listed stocks
 
-Yahoo coverage is not complete for all equities.
+Yahoo coverage → Not complete for all equities
 
-⚙️ How the script works
+⚙️ How the Script Works
 
-Fetches BSE equity master data.
+Fetches BSE equity master data
 
-Filters only Active Equity stocks.
+Filters only Active Equity stocks
 
-Selects relevant columns.
+Selects relevant columns
 
-Fetches Yahoo data in parallel.
+Fetches Yahoo data in parallel
 
-Merges Yahoo enrichment into BSE data.
+Merges Yahoo enrichment into BSE data
 
-Renames columns for readability.
+Renames columns for readability
 
-Saves the final CSV file.
+Saves the final CSV file
 
 📦 Installation
 pip install pandas requests yfinance
 
-🚀 How to run
+🚀 How to Run
 python bse_full.py
 
 ⏱ Runtime
 
-Typically 5–8 minutes depending on stock count and Yahoo response speed.
+~5–8 minutes
+(Depends on stock count and Yahoo response speed)
 
 🧠 Summary
 
-This script creates a clean, analyst-ready BSE Stock data using BSE as the primary source and Yahoo Finance for enrichment.
+Creates a clean, analyst-ready BSE equity dataset using:
+
+BSE as the primary source
+
+Yahoo Finance for enrichment
