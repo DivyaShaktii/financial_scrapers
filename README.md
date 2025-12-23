@@ -1,6 +1,6 @@
 **NSE Scraper**
 
-/*What this script does*/
+**What this script does**
 This script builds a complete NSE equities master file from scratch.
 It fetches all tradable NSE symbols, loads official company name and listing date from NSE,
 uses Yahoo Finance as a fallback for missing data, adds P/E, market cap, and sector,
@@ -41,7 +41,7 @@ as a fallback.
 
 **BSE Scraper**
 
-/*What this script does*/
+**What this script does**
 This script builds a BSE mainboard equity stock master from scratch.
 It fetches all BSE-listed equity instruments, filters only Active Equity stocks,
 uses Yahoo Finance to enrich data with Sector, Industry, and P/E ratio,
