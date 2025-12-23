@@ -99,5 +99,4 @@ Typically 5–8 minutes depending on stock count and Yahoo response speed.
 This script creates a clean, analyst-ready BSE Stock data using BSE as the primary
 source and Yahoo Finance for enrichment.
 
-## Feature Branch
-Adds NSE and BSE equity stock scraping pipelines with Yahoo enrichment.
+
