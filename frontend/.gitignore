@@ -88,3 +88,7 @@ coverage/
 # yarn-error.log
 # lerna-debug.log*
 # .turbo/
+backend/data/
+frontend/public/data/
+__pycache__/
+*.pyc
