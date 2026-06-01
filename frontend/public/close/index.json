@@ -1,0 +1,31 @@
+{
+  "latest": "2026-06-01",
+  "generated_at": "2026-06-01T06:28:12",
+  "dates": [
+    {
+      "date": "2026-06-01",
+      "file": "/close/swing_close_2026-06-01.json",
+      "rows": 842
+    },
+    {
+      "date": "2026-05-29",
+      "file": "/close/swing_close_2026-05-29.json",
+      "rows": 827
+    },
+    {
+      "date": "2026-05-27",
+      "file": "/close/swing_close_2026-05-27.json",
+      "rows": 1073
+    },
+    {
+      "date": "2026-05-26",
+      "file": "/close/swing_close_2026-05-26.json",
+      "rows": 1073
+    },
+    {
+      "date": "2026-05-22",
+      "file": "/close/swing_close_2026-05-22.json",
+      "rows": 1073
+    }
+  ]
+}
